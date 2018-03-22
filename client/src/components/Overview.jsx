@@ -10,15 +10,15 @@ class Overview extends React.Component {
     super(props);
     this.state = {
       renderBool: false,
-      restaurantTitle: 'Title Placeholder',
-      restaurantTagline: 'Tagline Placeholder',
-      restaurantType: 'Restaurant',
-      restaurantVicinity: 'Vicinity Placeholder',
-      restaurantPriceLevel: 'Price Level Placeholder',
-      weGotFoodRating: '3.3',
-      weGotDecorRating: '3.3',
-      weGotServiceRating: '3.3',
-      restaurantDescription: 'Description Placeholder',
+      restaurantTitle: '',
+      restaurantTagline: '',
+      restaurantType: '',
+      restaurantVicinity: '',
+      restaurantPriceLevel: '',
+      weGotFoodRating: '',
+      weGotDecorRating: '',
+      weGotServiceRating: '',
+      restaurantDescription: '',
     };
   }
 
@@ -31,7 +31,8 @@ class Overview extends React.Component {
 
     axios.get(`/api/restaurants/${id}/overview`)
       .then((response) => {
-        this.handleRestaurantChange(response.data[0]);
+        // console.log(response);
+        this.handleRestaurantChange(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -48,6 +49,7 @@ class Overview extends React.Component {
       renderBool: true,
       restaurantTitle: restaurantDetails.name.toUpperCase(),
       restaurantTagline: restaurantDetails.tagline,
+      restaurantType: restaurantDetails.type,
       restaurantVicinity: restaurantDetails.vicinity,
       restaurantPriceLevel: priceLevelInDollars,
       weGotFoodRating: restaurantDetails.zagatFood,

@@ -42,6 +42,7 @@ body {
 .overview-basic-details-specific {
   display: inline-block;
   color: #656666;
+  text-transform: capitalize;
 }
 /* ====================================================== */
 /* ============= WeGot Divider Line Styles ============== */

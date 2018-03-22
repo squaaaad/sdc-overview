@@ -1,0 +1,15 @@
+config:
+  # http:
+  #   pool: 10
+  target: 'http://localhost:3002'
+  phases:
+    - duration: 120
+      arrivalRate: 60
+scenarios:
+  - flow:
+    - loop:
+      - get:
+          # url: "/restaurants/{{$randomNumber(1,10000000)}}"
+          url: "/api/restaurants/{{$randomNumber(1,10000000)}}/overview"
+
+      count: 10
