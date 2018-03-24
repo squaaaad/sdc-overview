@@ -16,20 +16,21 @@ const restaurantSchema = mongoose.Schema({
   longDescription: String,
 });
 
-const RestaurantModel = mongoose.model('Restaurant', restaurantSchema);
+module.exports = mongoose.model('Restaurant', restaurantSchema);
+// const RestaurantModel = mongoose.model('Restaurant', restaurantSchema);
 
-const findOneById = (id, callback) => {
-  RestaurantModel.find({ _id : id }, callback);
-};
+// const findOneById = (id, callback) => {
+//   RestaurantModel.find({ _id : id }, callback);
+// };
 
-const insertMany = (restaurant, callback) => {
-  RestaurantModel.insertMany(restaurant, callback);
-};
+// const insertMany = (restaurant, callback) => {
+//   RestaurantModel.insertMany(restaurant, callback);
+// };
 
-const count = () => RestaurantModel.count();
+// const count = () => RestaurantModel.count();
 
 // statsd_instrument.measure(this, 'findOneById', 'mongodb_findOneById_measure');
 
-exports.findOneById = findOneById;
-exports.insertMany = insertMany;
-exports.count = count;
+// exports.findOneById = findOneById;
+// exports.insertMany = insertMany;
+// exports.count = count;
