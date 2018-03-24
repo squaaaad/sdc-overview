@@ -54,19 +54,16 @@ app.get('/api/restaurants/:id/overview', async(req, res) => {
 
 
 /*
-app.get('/api/restaurants/:id/overview', (req, res) => {
+app.get('/api/restaurants/:id/overview', async(req, res) => {
   var id = req.params.id;
-  restaurants.findOneById(req.params.id, (err, result) => {
-    if (err) {
-      console.log('err');
-      res.status(500);
-      res.send(err);
-    } else {     
-      res.status(200);
-      // console.log(result[0]);
-      res.send(result[0]);
-    }
-  });
+  const restaurantInfo = await RestaurantModel.find({ _id : id });
+  try{
+    res.status(200);
+    res.send(restaurantInfo[0]);
+  } catch(err){
+    res.status(500);
+    res.send(err);
+  }
 });
 */
 
